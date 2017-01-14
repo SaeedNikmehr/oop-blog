@@ -1,10 +1,27 @@
-<?php ?>
+<?php
+require_once ("../../includes/function.php") ;
+//require_once ("../../includes/config.php") ;
+
+
+
+if (isset($_POST['submit'])) {
+    $username = $_POST['username'] ;
+    $password = $_POST['password'] ;
+    $session = new Session() ;
+    if ($session -> login($username , $password)) {
+        header("location:index.php") ;
+    } else {
+        header("location:login.php") ;
+    }
+}
+?>
 
 <!DOCTYPE>
 <html>
     <head>
         <meta charset="utf8">
-
+        <title>login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">    
 
     </head>
     <body>

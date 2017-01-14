@@ -1,12 +1,12 @@
 <?php
 
-class Session {
+class Session extends User {
 
     private $logged_in = false ;
 
     function __construct() {
         session_start() ;
-        $this -> check_login() ;
+        $this -> checkLogin() ;
     }
 
     public function is_logged_in() {
@@ -14,12 +14,14 @@ class Session {
     }
 
     public function login($username , $password) {
-        $user = new User() ;
 
-        $user -> findUserByUser_Pass($username , $password) ;
+        $user = parent::findUserByUser_Pass($username , $password) ;
         if ($user) {
             $_SESSION['username'] = sha1($username) ;
             $this -> logged_in = true ;
+            return TRUE ;
+        } else {
+            return FALSE ;
         }
     }
 
@@ -29,11 +31,10 @@ class Session {
         header("location:$url") ;
     }
 
-    private function check_login() {
+    private function checkLogin() {
         if (isset($_SESSION['username'])) {
             $this -> logged_in = true ;
         } else {
-
             $this -> logged_in = false ;
         }
     }

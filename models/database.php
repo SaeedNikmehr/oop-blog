@@ -1,6 +1,6 @@
 <?php
 
-require_once "includes/config.php" ;
+require_once ("config.php") ;
 
 class Database extends mysqli {
 
@@ -8,6 +8,7 @@ class Database extends mysqli {
 
     function __construct() {
         $this -> open_connection() ;
+//      $this -> connect = parent::__construct(DB_HOST , DB_USER , DB_PASS , DB_NAME) ;
     }
 
     protected function open_connection() {

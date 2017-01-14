@@ -11,7 +11,7 @@
         </h1>
         <ul>
             <a href="#"><li> خانه </li></a>
-            <a href="#"><li> ورود </li></a>
+            <a href="public/admin/login.php"><li> ورود </li></a>
             <a href="#"><li> در مورد ما </li></a>
 
     </body>
