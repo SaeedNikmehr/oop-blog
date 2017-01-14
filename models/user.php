@@ -83,7 +83,7 @@ class User {
                 return $user ;
             }
         } else {
-            echo 'UserName Or Password Incorrect.' ;
+            return false ;
         }
         $database -> close_connection() ;
     }
