@@ -10,9 +10,9 @@
             INDEX PAGE
         </h1>
         <ul>
-            <a href="#"><li> خانه </li></a>
+            <a href="Index.php"><li> خانه </li></a>
             <a href="public/admin/login.php"><li> ورود </li></a>
-            <a href="#"><li> در مورد ما </li></a>
+            <a href="about.php"><li> در مورد ما </li></a>
 
     </body>
 </html>
@@ -52,4 +52,20 @@ require_once 'includes/function.php' ;
 //$email = "mammad@gmail.com" ;
 //$pass = 1234567 ;
 //$insert -> userInsert($username , $email , $pass) ;
+/////////////////////////////////////////////////////////////
+$posts = new Post() ;
+$id = 1 ;
+$post = Post::findPostByID($id) ;
+echo $post['post_id'] ;
+echo $post['title'] ;
+echo $post['body'] ;
+
+$title = "the second title" ;
+$body = "the second body" ;
+if ($insert = $posts -> postUpdate($id , $title , $body)) {
+    echo "post inserted" ;
+} else {
+    echo "insert failed" ;
+}
+//echo $insert ;
 ?>

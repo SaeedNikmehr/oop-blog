@@ -28,6 +28,10 @@ class Database extends mysqli {
         }
     }
 
+    public function fetch_assoc() {
+        return $this -> connect -> fetch_assoc() ;
+    }
+
     public function query($sql) {
         return $this -> connect -> query($sql) ;
     }

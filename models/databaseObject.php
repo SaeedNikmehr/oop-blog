@@ -9,7 +9,7 @@ class DatabaseObject {
     public function selectBySQL($sql) {
         $database = new Database ;
         $result = $database -> query($sql) ;
-
+        $selected[] = '' ;
         while ($row = $result -> fetch_assoc()) {
             $selected[] = $row ;
         }

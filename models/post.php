@@ -2,7 +2,7 @@
 
 class Post extends Database {
 
-    protected $tableName ;
+    protected $tableName = "post" ;
     protected $post_id ;
     protected $title ;
     protected $body ;
@@ -13,12 +13,10 @@ class Post extends Database {
 
     public function postInsert($title , $body) {
 
+        $sql = "INSERT INTO post (title, body) "
+            . "VALUES ('$title', '$body')" ;
 
-        $sql = "INSERT INTO post"
-            . "(`title` , `body`) "
-            . "VALUES ('$title', $body')" ;
-
-        if ($stmt = parent::query($sql)) {
+        if ($result = parent::query($sql)) {
             return TRUE ;
         } else {
             return FALSE ;
@@ -31,7 +29,7 @@ class Post extends Database {
 
         $sql = "UPDATE post SET "
             . "title = '$title' "
-            . ", body = '$body'"
+            . " , body = '$body'"
             . " WHERE post_id = '$id' " ;
 
         if ($result = parent::query($sql)) {
@@ -52,6 +50,18 @@ class Post extends Database {
             return true ;
         } else {
             return false ;
+        }
+    }
+
+    public static function findPostByID($id) {
+        $id = (int) $id ;
+        $database = new mysqli(DB_HOST , DB_USER , DB_PASS , DB_NAME) ;
+        $sql = "SELECT `post_id` , `title` ,`body` FROM post WHERE post_id = {$id}" ;
+        $result = $database -> query($sql) ;
+        if ($row = $result -> fetch_assoc()) {
+            return $row ;
+        } else {
+            return FALSE ;
         }
     }
 

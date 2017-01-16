@@ -18,9 +18,14 @@ if ($session -> is_logged_in() == FALSE) {
         <h3>
             ADMIN INDEX
         </h3>
-        <h4><a href="logout.php">logout</a><h4/>
-    </body>
-</html>
+
+        <h4><a href="post_page/post_index.php">post_index</a><h4/>
+            <h4><a href="user_page/user_index.php">user_index</a><h4/>
+                <h4><a href="comment_page/comment_index.php">comment_indexed</a><h4/>
+                    <h4><a href="logout.php">logout</a><h4/>
+                        </body>
+
+                        </html>
 
 
 

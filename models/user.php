@@ -2,7 +2,7 @@
 
 //require_once "database.php" ;
 
-class User {
+class User extends Database {
 
     protected $tableNmae ;
     protected $userId ;
@@ -86,6 +86,18 @@ class User {
             return false ;
         }
         $database -> close_connection() ;
+    }
+
+    public static function findUserByID($id) {
+        $id = (int) $id ;
+        $database = new mysqli(DB_HOST , DB_USER , DB_PASS , DB_NAME) ;
+        $sql = "SELECT `user_id` , `username` , `email` ,`password` FROM user WHERE user_id = {$id}" ;
+        $result = $database -> query($sql) ;
+        if ($row = $result -> fetch_assoc()) {
+            return $row ;
+        } else {
+            return FALSE ;
+        }
     }
 
 }
