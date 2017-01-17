@@ -5,7 +5,6 @@ if ($session -> is_logged_in() == FALSE) {
     header("location:login.php") ;
 }
 
-
 if (isset($_GET['id'])) {
     $id = $_GET['id'] ;
     $find = Post::findPostByID($id) ;
@@ -21,7 +20,7 @@ if (isset($_POST['submit'])) {
         header('location:post_index.php') ;
     } else {
         header('location:update_post.php') ;
-        echo 'post nof found' ;
+        echo 'post not found' ;
     }
 }
 ?>
@@ -62,7 +61,6 @@ if (isset($_POST['submit'])) {
                         <td>
                             <input type="submit" name="submit" value="Update Post"> 
                         </td>
-
                     </tr>
                 </table>
             </form>

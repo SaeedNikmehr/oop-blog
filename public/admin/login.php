@@ -25,6 +25,15 @@ if (isset($_POST['submit'])) {
 
     </head>
     <body>
+
+        <h1>
+            LOGIN PAGE
+        </h1>
+        <a href="../../Index.php"><li> خانه </li></a>
+        <a href="login.php"><li> ورود </li></a>
+        <a href="../../about.php"><li> در مورد ما </li></a>
+        <br />
+
         <form action="login.php" method="post">
             <table>
                 <tr>
@@ -40,7 +49,8 @@ if (isset($_POST['submit'])) {
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2">
+                    <td></td>
+                    <td>
                         <input type="submit" name="submit" value="Login" />
                     </td>
                 </tr>
